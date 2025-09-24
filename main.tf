@@ -90,5 +90,3 @@ resource "aws_instance" "Ansible-Node" {
     Role        = "slave"
   }
 }
-
-
