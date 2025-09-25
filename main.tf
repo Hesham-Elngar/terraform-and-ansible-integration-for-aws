@@ -80,9 +80,18 @@ resource "aws_instance" "Ansible-Node" {
   ami           = data.aws_ssm_parameter.ami.value
   instance_type = "t2.micro"
   vpc_security_group_ids = var.security_group
-  count         = 5
+  count         = 1
   key_name      = var.key_name
   subnet_id         = var.subnet_id
+  user_data = <<EOF
+
+  #!/bin/bash
+  mkdir -p /home/ec2-user/.ssh
+  echo "$(cat id_rsa.pub)" >> /home/ec2-user/.ssh/authorized_keys
+  chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
+  chmod 600 /home/ec2-user/.ssh/authorized_keys
+  EOF
+
 
   tags = {
     Name        = "Ansible-Node-${count.index}"
