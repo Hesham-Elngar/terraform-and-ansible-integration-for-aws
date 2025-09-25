@@ -83,14 +83,15 @@ resource "aws_instance" "Ansible-Node" {
   count         = 1
   key_name      = var.key_name
   subnet_id         = var.subnet_id
-  user_data = <<EOF
-
+  user_data = <<-EOF
   #!/bin/bash
   mkdir -p /home/ec2-user/.ssh
-  echo "$(cat id_rsa.pub)" >> /home/ec2-user/.ssh/authorized_keys
-  chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
+  chmod 700 /home/ec2-user/.ssh
   chmod 600 /home/ec2-user/.ssh/authorized_keys
+  echo "${file("${path.module}/id_rsa.pub")}" > /home/ec2-user/.ssh/authorized_keys
+  chown ec2-user:ec2-user /home/ec2-user/.ssh/authorized_keys
   EOF
+
 
 
   tags = {
