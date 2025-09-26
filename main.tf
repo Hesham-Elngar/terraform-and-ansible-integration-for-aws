@@ -80,7 +80,7 @@ resource "aws_instance" "Ansible-Node" {
   ami           = data.aws_ssm_parameter.ami.value
   instance_type = "t2.micro"
   vpc_security_group_ids = var.security_group
-  count         = 1
+  count         = 15
   key_name      = var.key_name
   subnet_id         = var.subnet_id
   user_data = <<-EOF
