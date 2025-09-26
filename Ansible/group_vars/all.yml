@@ -1,5 +1,5 @@
-smtp_server: "smtp.zoho.com"
+smtp_server: "smtp.gmail.com"
 smtp_port: 587
-email_user: "heshamelngar551@zohomail.com"
-email_pass: "6DSbXq8RSvH2"
-alert_recipient: "heshamelngar551@gmail.com"
+email_user: "XXXXXXXXXX"
+email_pass: "XXXXXXXXXX"
+alert_recipient: "heshamelngar@gmail.com"
