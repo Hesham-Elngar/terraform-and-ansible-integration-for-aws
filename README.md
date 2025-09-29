@@ -60,7 +60,7 @@ terraform apply -auto-approve
 Terraform will:
 
  Create an Ansible Controller with Ansible pre-installed \
-⚡ Spin up 15 EC2 Nodes with SSH key injected \
+⚡ Spin up 10 EC2 Nodes with SSH key injected \
  Tag instances (Role=master, Role=slave) for dynamic inventory
 
 <img width="1604" height="724" alt="Screenshot 2025-09-26 095748" src="https://github.com/user-attachments/assets/782eadd7-ff16-4317-b76e-d87c3ac0a4f4" />
